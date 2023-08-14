@@ -1,6 +1,6 @@
 # Spikeh
 
-Built in SwiftUI - Spikeh is a Valorant related app that shows information about Agents, Equipment, and Maps from the game for new players to familiarize themselves with the game.
+Built in SwiftUI - Spikeh is a Valorant related app that shows information about Agents, Equipment, and Maps for new players to familiarize themselves with the game.
 
 All assets are from the API: https://valorant-api.com/
 
