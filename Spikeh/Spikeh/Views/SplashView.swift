@@ -10,8 +10,6 @@ import SwiftUI
 struct SplashView: View {
 	
 	@State var isActive: Bool = false
-//	@StateObject private var valAPI = APIHandler()
-//	var valAPI = APIHandler()
 	
 	var body: some View {
 		VStack {
