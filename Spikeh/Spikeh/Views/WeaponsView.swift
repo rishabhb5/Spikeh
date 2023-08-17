@@ -13,8 +13,6 @@ struct WeaponsView: View {
 	@State var isActive: Bool = false
 	
 	var body: some View {
-		//		Text("Hi")
-		//			Text("Hi")
 		NavigationStack {
 			List {
 				let weaponKeys: [String] = Array(valWeaponsAPI.weaponsDataDict.keys)
@@ -22,15 +20,16 @@ struct WeaponsView: View {
 				
 				ForEach(sortedWeaponKeys, id: \.self) { key in
 					HStack {
+						// Data
 						let weaponName: String = valWeaponsAPI.weaponsDataDict[key]!.displayName
 						let weaponIcon: String = valWeaponsAPI.weaponsDataDict[key]!.displayIcon
 						
-//						Spacer()
 						Text(weaponName)
 							.fontWeight(.semibold)
-//							.padding(35)
+						
 						Spacer()
 						
+						// Weapon Icon
 						// Some of these assets from the API have larger images than the rest by default
 						if (weaponName == "Classic" || weaponName == "Frenzy") {
 							// Weapon Icon
@@ -39,7 +38,7 @@ struct WeaponsView: View {
 								.frame(maxWidth: 50, maxHeight: 50)
 								.padding(25)
 								.frame(maxWidth: UIScreen.main.bounds.width,
-													   maxHeight: UIScreen.main.bounds.height)
+									   maxHeight: UIScreen.main.bounds.height)
 						}
 						else if (weaponName == "Ghost" || weaponName == "Melee" || weaponName == "Sheriff") {
 							AsyncImage(url: URL(string: weaponIcon), scale: 5.5)
@@ -47,7 +46,7 @@ struct WeaponsView: View {
 								.frame(maxWidth: 50, maxHeight: 50)
 								.padding(25)
 								.frame(maxWidth: UIScreen.main.bounds.width,
-													   maxHeight: UIScreen.main.bounds.height)
+									   maxHeight: UIScreen.main.bounds.height)
 						}
 						else if (weaponName == "Shorty") {
 							AsyncImage(url: URL(string: weaponIcon), scale: 5)
@@ -55,7 +54,7 @@ struct WeaponsView: View {
 								.frame(maxWidth: 50, maxHeight: 50)
 								.padding(25)
 								.frame(maxWidth: UIScreen.main.bounds.width,
-													   maxHeight: UIScreen.main.bounds.height)
+									   maxHeight: UIScreen.main.bounds.height)
 						}
 						else {
 							// Weapon Icon
@@ -64,40 +63,30 @@ struct WeaponsView: View {
 								.frame(maxWidth: 150, maxHeight: 150)
 								.padding(25)
 								.frame(maxWidth: UIScreen.main.bounds.width,
-													   maxHeight: UIScreen.main.bounds.height)
+									   maxHeight: UIScreen.main.bounds.height)
 						}
-						
-						
-						//
-						
-						
-					}
-				}
-			}
+					}	//*HStack*//
+				}	//*ForEach*//
+			}	//*List*//
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
 					Text("Equipment")
 						.font(.title2)
 						.fontWeight(.semibold)
-					//							.padding(.top, 20)
 						.foregroundColor(.white)
 				}
 				
 			}
 		}
-		
 		.onAppear {
 			if self.isActive {
 				// do nothing
 			} else {
 				print("fetching weapons")
 				valWeaponsAPI.weaponsFetch()
-				//					valAPI.weaponsFetch()
 				isActive = true
 			}
-			
 		}
-		
 	}
 }
 

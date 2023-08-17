@@ -13,21 +13,17 @@ struct SplashView: View {
 	
 	var body: some View {
 		VStack {
-//			Color.black
-//				.ignoresSafeArea()
-			
 			if self.isActive {
 				MainView()
 			} else {
 				Text("developed by bendi")
 					.foregroundColor(.white)
+					.fontWeight(.semibold)
 			}
 		}
 		.onAppear {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 				withAnimation {
-					print("hi1")
-//					valAPI.fetch()
 					self.isActive = true
 				}
 			}
@@ -43,10 +39,3 @@ struct SplashView_Previews: PreviewProvider {
 		SplashView()
 	}
 }
-
-
-//	.onAppear {
-//		// have multiple api fetches - (agents, maps)
-//		// figure out how to do 1 at a time
-//		valAPI.fetch()
-//	}

@@ -17,6 +17,7 @@ struct MapData: Hashable, Codable {
 	let coordinates: String?
 	let displayIcon: String?
 	let listViewIcon: String
+	let mapUrl: String?
 	let splash: String
 }
 
@@ -43,7 +44,6 @@ class MapsAPIHandler: ObservableObject {
 				
 				DispatchQueue.main.async {
 					for map in mapData {
-//						print(weapon)
 						if (map.displayName != "The Range") {
 							self?.mapsDataDict[map.displayName] = map
 						}
@@ -55,11 +55,5 @@ class MapsAPIHandler: ObservableObject {
 			}
 		}
 		task.resume()
-		
-//		var range = "The Range"
-//		mapsDataDict[range] = nil
-		
-		
 	}
-	
 }

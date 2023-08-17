@@ -17,21 +17,21 @@ struct MapsView: View {
 				ForEach(sortedMapKeys, id: \.self) { key in
 					HStack {
 						let mapName: String = mapAPI.mapsDataDict[key]!.displayName
-//						let mapCoordinates: String = mapAPI.mapsDataDict[key]!.coordinates!
+						let coordinates: String = mapAPI.mapsDataDict[key]!.coordinates ?? "No Coordinates Found"
 						let displayIcon: String =  mapAPI.mapsDataDict[key]!.displayIcon ?? "nil"
 						let listViewIcon: String = mapAPI.mapsDataDict[key]!.listViewIcon
-						let splash: String = mapAPI.mapsDataDict[key]!.splash
+						let mapUrl: String = mapAPI.mapsDataDict[key]!.mapUrl ?? "No Codename Found"
 						
 						AsyncImage(url: URL(string: listViewIcon), scale: 3)
 							.aspectRatio(contentMode: .fit)
 							.frame(maxWidth: 200, maxHeight: 200)
 							.padding()
 						
-						NavigationLink(destination: MapDetailsView(mapName: mapName, displayIcon: displayIcon, splash: splash)) {
+						NavigationLink(destination: MapDetailsView(mapName: mapName, displayIcon: displayIcon, coordinates: coordinates, mapUrl: mapUrl)) {
 							Text(mapName)
 								.fontWeight(.semibold)
+								.padding(10)
 						}
-						//
 					}
 				}
 			}
@@ -40,27 +40,20 @@ struct MapsView: View {
 						Text("Maps")
 						.font(.title2)
 							.fontWeight(.semibold)
-//							.padding(.top, 20)
 							.foregroundColor(.white)
 				}
-				
 			}
-//			.navigationTitle("Maps")
 			.onAppear {
-				// have multiple api fetches - (agents, maps)
-				// figure out how to do 1 at a time
 				if self.isActive {
 					// do nothing
 				} else {
 					print("fetching Maps")
 					mapAPI.mapsFetch()
-//					valAPI.weaponsFetch()
 					isActive = true
 				}
 				
 			}
 			.navigationBarTitleDisplayMode(.inline) // to change style
-			
 		}
 	}
 }

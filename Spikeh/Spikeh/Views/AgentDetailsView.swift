@@ -15,7 +15,7 @@ struct AgentDetailsView: View {
 		ScrollView {
 			Text(agentName)
 				.fontWeight(.bold)
-			Spacer()
+			
 			Divider()
 			
 			AsyncImage(url: URL(string: agentBackground), scale: 1.8)
@@ -23,61 +23,17 @@ struct AgentDetailsView: View {
 				.overlay {
 					AsyncImage(url: URL(string: agentBust), scale: 4.5)
 						.aspectRatio(contentMode: .fit)
-						.frame(maxWidth: 500, maxHeight: 500)
-						.padding(4)
-						.cornerRadius(5) // Inner corner radius
-						.padding(1) // Width of the border
-//						.background(Color.black) // Color of the border
+						.frame(maxWidth: 500, maxHeight: 200)
 				}
 			
-			
-			
-//			AsyncImage(url: URL(string: agentBust), scale: 4.5)
-//				.aspectRatio(contentMode: .fit)
-//				.frame(maxWidth: 500, maxHeight: 500)
-//				.padding(4)
-//				.cornerRadius(5) // Inner corner radius
-//				.padding(1) // Width of the border
-//				.background(Color.black) // Color of the border
-//				.overlay {
-//					AsyncImage(url: URL(string: agentBackground))
-//						.opacity(0.7)
-//						.frame(maxWidth: 500, maxHeight: 500)
-//				}
-			
-			//			.frame(maxWidth: 50, maxHeight: 50)
-			//
-				
-//			Divider()
-//			Spacer()
+			Text("Agent Bio:")
+				.fontWeight(.semibold)
 			
 			Text(agentDescription)
 				.frame(width: 350)
 				.fontWeight(.semibold)
 				.font(.system(size: 16))
-				.padding(5)
-//				.overlay(
-//						RoundedRectangle(cornerRadius: 16)
-//							.stroke(.white, lineWidth: 1)
-//					)
-//				.border(.white)
-			
 		}
-//		.navigationBarBackButtonHidden(true)
-//		.toolbar {
-//			ToolbarItem(placement: .navigationBarLeading) {
-//				Button {
-//					dismiss()
-//				} label: {
-//					HStack {
-//						Image(systemName: "chevron.backward")
-//							.foregroundColor(.white)
-//						Text("Back")
-//							.foregroundColor(.white)
-//					}
-//				}
-//			}
-//		}
 	}
 }
 

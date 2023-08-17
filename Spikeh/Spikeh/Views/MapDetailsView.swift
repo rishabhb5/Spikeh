@@ -12,27 +12,31 @@ import SwiftUI
 struct MapDetailsView: View {
 	var mapName: String
 	var displayIcon: String
-	var splash: String
+	var coordinates: String
+	var mapUrl: String
 	
 	var body: some View {
 		Text(mapName)
 			.padding(20)
 			.fontWeight(.semibold)
 			.font(.system(size: 24))
+		
 		ScrollView {
-			VStack {
+			VStack() {
+				Text("Coordinates:")
+					.fontWeight(.semibold)
+				Text(coordinates)
+					.padding(.bottom, 20)
+					.fontWeight(.semibold)
 				
+				Text("Map Codename:")
+					.fontWeight(.semibold)
+				Text(mapUrl)
+					.padding(.bottom, 60)
+					.fontWeight(.semibold)
 				
-				Divider()
+				Spacer()
 				
-				AsyncImage(url: URL(string: splash), scale: 3)
-					.aspectRatio(contentMode: .fit)
-					.frame(maxWidth: 100, maxHeight: 50)
-					.padding(100)
-					.frame(maxWidth: UIScreen.main.bounds.width,
-										   maxHeight: UIScreen.main.bounds.height)
-				Divider()
-				//
 				// Map Icon
 				AsyncImage(url: URL(string: displayIcon), scale: 3)
 					.aspectRatio(contentMode: .fit)
@@ -49,6 +53,6 @@ struct MapDetailsView: View {
 
 struct MapDetailsView_Previews: PreviewProvider {
 	static var previews: some View {
-		MapDetailsView(mapName: "", displayIcon: "", splash: "")
+		MapDetailsView(mapName: "", displayIcon: "", coordinates: "", mapUrl: "")
 	}
 }
