@@ -14,5 +14,7 @@ Future updates:
 - Equipment descriptions
 - Quicker image loading
 
+<br />
+<br />
 
 Privacy Policy: https://www.privacypolicies.com/live/f91963b9-3733-4200-96d8-75a1bc76ab98
